@@ -241,6 +241,9 @@ func (c *Config) Validate() error {
 	if c.EBPF.BatchLength == 0 {
 		return ConfigError("BEYLA_BPF_BATCH_LENGTH must be at least 1")
 	}
+	if c.EBPF.HTTPBufSize%16 != 0 {
+		return ConfigError("BEYLA_BPF_HTTP_BUF_SIZE must be a multitude of 16")
+	}
 	if c.Attributes.Kubernetes.InformersSyncTimeout == 0 {
 		return ConfigError("BEYLA_KUBE_INFORMERS_SYNC_TIMEOUT duration must be greater than 0s")
 	}
