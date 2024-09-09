@@ -73,6 +73,10 @@ type TracerConfig struct {
 	TrackRequestHeaders bool `yaml:"track_request_headers" env:"BEYLA_BPF_TRACK_REQUEST_HEADERS"`
 
 	HTTPRequestTimeout time.Duration `yaml:"http_request_timeout" env:"BEYLA_BPF_HTTP_REQUEST_TIMEOUT"`
+
+	// HTTPBufSize specifies the buffer size for HTTP requests (default: 160). It can be increased
+	// to accommodate longer URLs.
+	HTTPBufSize int `yaml:"http_buf_size" env:"BEYLA_BPF_HTTP_BUF_SIZE"`
 }
 
 // Probe holds the information of the instrumentation points of a given function: its start and end offsets and

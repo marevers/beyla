@@ -50,6 +50,7 @@ var DefaultConfig = Config{
 		BpfBaseDir:         "/var/run/beyla",
 		BpfPath:            fmt.Sprintf("beyla-%d", os.Getpid()),
 		HTTPRequestTimeout: 30 * time.Second,
+		HTTPBufSize:        160,
 	},
 	Grafana: otel.GrafanaConfig{
 		OTLP: otel.GrafanaOTLP{
